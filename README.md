@@ -29,11 +29,14 @@ Auto generate unit tests based on input and expected output files.
 
 ### Prerequisites
 
-- Java 11
+- Java 11 (recommended)
 - IntelliJ IDEA
 
-Currently, this project only supports Java 11, but it should work fine on other versions above Java 1.8.  
-Also, it is assumed that you are using IntelliJ as the IDE in the tutorial part.
+If you are using Java of version other than 11, you may need to assign a Gradle JVM from `File/Settings/Build, Execution, Deployment/Build Tools/Gradle`.
+<img src="https://i.loli.net/2021/11/10/W9zkbtIABPFnxri.png" alt='gradle_jvm' style='zoom:50%'>
+
+Also, you might need to assign project JDK to your Java version in `File/Project Structure`  
+<img src="https://i.loli.net/2021/11/10/8vo5gGCFNYT6wci.png" style='zoom:60%' alt='select jdk'>
 
 ### Installation
 
