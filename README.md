@@ -17,8 +17,8 @@ Auto generate unit tests based on input and expected output files.
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Usage](#usage)
-  - [Comparing output](#comparing-output)
+- [Usage](#usage)
+- [Comparing output](#comparing-output)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgement](#acknowledgement)
@@ -55,7 +55,7 @@ Also, it is assumed that you are using IntelliJ as the IDE in the tutorial part.
 - The empty test case (`1.txt`) should pass without any error
   ![test_success.png](https://i.loli.net/2021/11/10/UlLFpPGhkRBjt5E.png)
 
-### Usage
+## Usage
 
 **Write solution code:**
 
