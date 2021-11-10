@@ -17,17 +17,20 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestBase {
+public class TestGenerator {
+    private static final String TEST_RESOURCES_PATH_FORMAT = "src/test/resources/%s/%s";
+    private static final String TEST_FILE_POST_FIX = ".txt";
 
-    public static List<DynamicTest> getAllTests(int questionNum, Class<?> main) {
+    public static List<DynamicTest> getAllTests(Class<?> main) {
         List<DynamicTest> list = new ArrayList<>();
         try {
-            List<Path> casePaths = Files.walk(Paths.get("src/test/resources/q" + questionNum + "/cases"))
-                    .filter(path -> path.getFileName().toString().endsWith(".txt"))
+            String packageName = main.getPackage().getName();
+            List<Path> casePaths = Files.walk(Paths.get(String.format(TEST_RESOURCES_PATH_FORMAT, packageName, "cases")))
+                    .filter(path -> path.getFileName().toString().endsWith(TEST_FILE_POST_FIX))
                     .collect(Collectors.toList());
 
-            List<Path> expectedPaths = Files.walk(Paths.get("src/test/resources/q" + questionNum + "/expected"))
-                    .filter(path -> path.getFileName().toString().endsWith(".txt"))
+            List<Path> expectedPaths = Files.walk(Paths.get(String.format(TEST_RESOURCES_PATH_FORMAT, packageName, "expected")))
+                    .filter(path -> path.getFileName().toString().endsWith(TEST_FILE_POST_FIX))
                     .collect(Collectors.toList());
 
             assertEquals(expectedPaths.size(), casePaths.size());
@@ -51,7 +54,7 @@ public class TestBase {
         return list;
     }
 
-    static void testIoEquals(Path casePath, Path expectedPath, Class<?> main) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+    private static void testIoEquals(Path casePath, Path expectedPath, Class<?> main) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         System.setIn(new FileInputStream(casePath.toFile()));
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
