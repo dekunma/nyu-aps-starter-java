@@ -108,6 +108,7 @@ If a test failed, click on the test case to see the difference between your outp
 ![test_failed.png](https://i.loli.net/2021/11/10/QOxwg6LCVMrSsU8.png)
 ![diff.png](https://i.loli.net/2021/11/10/CoPxH4arv9tiz3n.png)
 
+If you do not see `<Click to see difference>` as in the above screenshot, please try updating your `IntelliJ IDEA`
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
